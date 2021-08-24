@@ -9,7 +9,6 @@ where the winner will shout out "Bingo!" in order to let the caller and the room
  */
 
 /* Calling Bingo Numbers */
-
 function bingo_number(){
   let values = [1,2,3,4,5,6,7,8,9,10,
                 11,12,13,14,15,16,17,18,19,20,
@@ -35,7 +34,6 @@ function bingo_number(){
 
 
 /* Generating Bingo Cards */
-
 let B = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 let I = [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
 let N = [31,32,33,34,35,36,37,38,39,40,41,42,43,44,45];
@@ -51,7 +49,7 @@ function bingo_card_generator(){
   bingo.N = N.sort(() => Math.random() - Math.random()).slice(0, 2);
   bingo.N.push('FREE');
 
-  /* Adding the last 2 elements to the N column */
+  /* Adding the last 2 elements to the N array */
   for(let i =0; i < 2; i++){
     N.map(e => {
       if(!bingo.N.includes(e)){
@@ -80,6 +78,7 @@ function check_winner(){
   bingo_card_generator = bingo_card_generator();
   console.log(bingo_card_generator);
 
+  // Checking if the player is the winner
   bingo_number.map(e => {
     if(bingo_card_generator.B.includes(e) ||
     bingo_card_generator.I.includes(e) ||
