@@ -68,13 +68,6 @@ function bingo_card_generator(){
 
 
 /* Checking Bingo Cards */
-
-
-
-
-
-
-
 player_calls = 'Bingo'
 console.log("Player Calls: "+player_calls)
 
