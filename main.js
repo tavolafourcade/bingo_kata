@@ -10,7 +10,7 @@ where the winner will shout out "Bingo!" in order to let the caller and the room
 
 /* Calling Bingo Numbers */
 
-function checker(){
+function bingo_number(){
   let values = [1,2,3,4,5,6,7,8,9,10,
                 11,12,13,14,15,16,17,18,19,20,
                 21,22,23,24,25,26,27,28,29,30,
@@ -63,11 +63,41 @@ function bingo_card_generator(){
   }
   bingo.G = G.sort(() => Math.random() - Math.random()).slice(0, 5);
   bingo.O = O.sort(() => Math.random() - Math.random()).slice(0, 5);
-  
-
   return bingo;
 }
 
-test = bingo_card_generator();
-console.log(test);
 
+/* Checking Bingo Cards */
+
+
+
+
+
+
+
+player_calls = 'Bingo'
+console.log("Player Calls: "+player_calls)
+
+function check_winner(){
+  // Calling numbers
+  bingo_number = bingo_number();
+  console.log(bingo_number);
+
+  // Generating Bingo Card
+  bingo_card_generator = bingo_card_generator();
+  console.log(bingo_card_generator);
+
+  bingo_number.map(e => {
+    if(bingo_card_generator.B.includes(e) ||
+    bingo_card_generator.I.includes(e) ||
+    bingo_card_generator.N.includes(e)||
+    bingo_card_generator.G.includes(e)||
+    bingo_card_generator.O.includes(e)){
+        console.log("Yes! You're the winner");
+    }else{
+      console.log("You're not the winner yet");
+    }
+  })
+}
+
+check_winner();
