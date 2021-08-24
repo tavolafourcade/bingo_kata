@@ -33,6 +33,41 @@ function checker(){
 
 }
 
-test = checker();
+
+/* Generating Bingo Cards */
+
+let B = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+let I = [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
+let N = [31,32,33,34,35,36,37,38,39,40,41,42,43,44,45];
+let G = [46,47,48,49,50,51,52,53,54,55,56,57,58,59,60];
+let O = [61,62,63,64,65,66,67,68,69,70,71,72,73,74,75];
+
+function bingo_card_generator(){
+  let bingo =new Object();
+  let temp = 0;
+  
+  bingo.B = B.sort(() => Math.random() - Math.random()).slice(0, 5);
+  bingo.I = I.sort(() => Math.random() - Math.random()).slice(0, 5);
+  bingo.N = N.sort(() => Math.random() - Math.random()).slice(0, 2);
+  bingo.N.push('FREE');
+
+  /* Adding the last 2 elements to the N column */
+  for(let i =0; i < 2; i++){
+    N.map(e => {
+      if(!bingo.N.includes(e)){
+        temp = e;
+        return temp;
+      }
+    });
+    bingo.N.push(temp); 
+  }
+  bingo.G = G.sort(() => Math.random() - Math.random()).slice(0, 5);
+  bingo.O = O.sort(() => Math.random() - Math.random()).slice(0, 5);
+  
+
+  return bingo;
+}
+
+test = bingo_card_generator();
 console.log(test);
 
